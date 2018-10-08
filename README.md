@@ -1,36 +1,24 @@
 # wish-compiler
 
-FIXME: description
+*A fancier DataSource compiler for the WISH project*
+
+## What?
+
+This is used to compile data sources for the [WISH Project](https://github.com/dhleong/wish).
 
 ## Installation
 
-Download from http://example.com/FIXME.
+Clone and build the executable using:
+
+    lein bin
 
 ## Usage
 
-FIXME: explanation
-
-    $ java -jar wish-compiler-0.1.0-standalone.jar [args]
-
-## Options
-
-FIXME: listing of options this app accepts.
-
-## Examples
-
-...
-
-### Bugs
-
-...
-
-### Any Other Sections
-### That You Think
-### Might be Useful
+    wish-compiler <source-dir> <output-file>
 
 ## License
 
-Copyright © 2018 FIXME
+Copyright © 2018 Daniel Leong
 
 Distributed under the Eclipse Public License either version 1.0 or (at
 your option) any later version.
