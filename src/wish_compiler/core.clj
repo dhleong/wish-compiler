@@ -1,5 +1,6 @@
 (ns wish-compiler.core
   (:require [clojure.java.io :as io]
+            [clojure.string :as str]
             [docopt.core :refer [docopt]]
             [wish-compiler.processor :refer [process]])
   (:gen-class))
@@ -23,8 +24,17 @@ Options:
   ; separate fn to satisfy docopt in an uberjar
   (run args))
 
+(defn- fix-spaces [s]
+  (str/replace s "%20" " "))
+
+(defn parse-args [args]
+  ; a bug in docopt drops spaces in quoted arguments...
+  (-> (docopt (map #(str/replace % " " "%20") args))
+      (update "<source-dir>" fix-spaces)
+      (update "<output-file>" fix-spaces)))
+
 (defn run [args]
-  (let [>> (docopt args)]
+  (let [>> (parse-args args)]
     (cond
       (or (nil? >>)
           (>> "--help")) (println (:doc (meta #'-main)))

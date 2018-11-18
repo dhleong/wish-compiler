@@ -1,4 +1,4 @@
-(defproject wish-compiler "1.0.0"
+(defproject wish-compiler "1.0.1"
   :description "Data Source compiler for wish"
   :url "https://github.com/dhleong/wish-compiler"
   :license {:name "Eclipse Public License"
